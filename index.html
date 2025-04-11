@@ -2,74 +2,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vercel - Free Fire Tournament</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VERCEL FF TOURNAMENT</title>
+  <link href="style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="glitch-overlay"></div>
   <nav>
-    <div class="logo">VERCEL</div>
-    <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#schedule">Schedule</a>
+    <div class="nav-brand">VERCEL</div>
+    <div class="nav-menu">
+      <a href="#hero">HOME</a>
+      <a href="#tournament">TOURNAMENT</a>
+      <a href="#prizes">PRIZES</a>
     </div>
   </nav>
 
-  <header id="home">
-    <div class="hero">
-      <h1>FREE FIRE CHAMPIONSHIP</h1>
-      <p>Battle for Glory • $10,000 Prize Pool</p>
-      <button class="join-btn">Join Tournament</button>
+  <section id="hero" class="hero-section">
+    <div class="hero-content">
+      <h1>FREE FIRE</h1>
+      <h2>CHAMPIONSHIP 2024</h2>
+      <div class="prize-pool">
+        <span class="prize-amount">$50,000</span>
+        <span class="prize-text">PRIZE POOL</span>
+      </div>
+      <button class="cta-button">REGISTER NOW</button>
     </div>
-  </header>
-
-  <section id="about" class="features">
-    <div class="feature-card">
-      <span class="icon icon-trophy"></span>
-      <h3>32 Teams</h3>
-      <p>Compete against the best</p>
-    </div>
-    <div class="feature-card">
-      <span class="icon icon-stream"></span>
-      <h3>Live Stream</h3>
-      <p>Watch on all platforms</p>
-    </div>
-    <div class="feature-card">
-      <span class="icon icon-gamepad"></span>
-      <h3>Pro Format</h3>
-      <p>Professional tournament rules</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="number">32</span>
+        <span class="label">TEAMS</span>
+      </div>
+      <div class="stat">
+        <span class="number">4</span>
+        <span class="label">DAYS</span>
+      </div>
+      <div class="stat">
+        <span class="number">1</span>
+        <span class="label">CHAMPION</span>
+      </div>
     </div>
   </section>
 
-  <section id="schedule" class="tournament-info">
-    <h2>Tournament Schedule</h2>
-    <div class="schedule-grid">
-      <div class="schedule-item">
-        <h4>Qualifiers</h4>
-        <p>June 15-16</p>
+  <section id="tournament" class="tournament-section">
+    <h2>TOURNAMENT STAGES</h2>
+    <div class="stages-grid">
+      <div class="stage">
+        <div class="stage-number">01</div>
+        <h3>QUALIFIERS</h3>
+        <p>TOP 16 TEAMS ADVANCE</p>
       </div>
-      <div class="schedule-item">
-        <h4>Quarter Finals</h4>
-        <p>June 22-23</p>
+      <div class="stage">
+        <div class="stage-number">02</div>
+        <h3>SEMIFINALS</h3>
+        <p>TOP 8 TEAMS ADVANCE</p>
       </div>
-      <div class="schedule-item">
-        <h4>Semi Finals</h4>
-        <p>June 29-30</p>
+      <div class="stage">
+        <div class="stage-number">03</div>
+        <h3>FINALS</h3>
+        <p>BATTLE FOR GLORY</p>
       </div>
-      <div class="schedule-item">
-        <h4>Grand Finals</h4>
-        <p>July 5</p>
+    </div>
+  </section>
+
+  <section id="prizes" class="prizes-section">
+    <h2>PRIZE DISTRIBUTION</h2>
+    <div class="prizes-grid">
+      <div class="prize first">
+        <span class="position">1ST</span>
+        <span class="amount">$25,000</span>
+      </div>
+      <div class="prize second">
+        <span class="position">2ND</span>
+        <span class="amount">$15,000</span>
+      </div>
+      <div class="prize third">
+        <span class="position">3RD</span>
+        <span class="amount">$10,000</span>
       </div>
     </div>
   </section>
 
   <footer>
-    <p>© 2024 Vercel Tournament. All rights reserved.</p>
+    <div class="footer-content">
+      <p>© 2024 VERCEL TOURNAMENT</p>
+      <p>POWERED BY FREE FIRE</p>
+    </div>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
