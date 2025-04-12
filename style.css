@@ -1,3 +1,4 @@
+
 :root {
   --neon-blue: #00f3ff;
   --neon-pink: #ff0099;
@@ -10,12 +11,19 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Orbitron', sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
   background-color: var(--dark-bg);
   color: white;
   overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .glitch-overlay {
@@ -55,10 +63,14 @@ nav {
   text-shadow: 0 0 10px var(--neon-blue);
 }
 
+.nav-menu {
+  display: flex;
+  gap: 30px;
+}
+
 .nav-menu a {
   color: white;
   text-decoration: none;
-  margin-left: 30px;
   font-weight: 700;
   position: relative;
   transition: 0.3s;
@@ -79,15 +91,30 @@ nav {
   width: 100%;
 }
 
-.hero-section {
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: var(--neon-blue);
+  transition: 0.3s;
+}
+
+section {
+  padding: 100px 0;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+}
+
+.hero-section {
   background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
               url('https://wallpapercave.com/wp/wp6366637.jpg') center/cover;
-  padding: 100px 20px;
   position: relative;
 }
 
@@ -123,11 +150,6 @@ nav {
   text-shadow: 0 0 20px var(--cyber-yellow);
 }
 
-.prize-text {
-  font-size: 1.5em;
-  color: white;
-}
-
 .cta-button {
   padding: 20px 40px;
   font-size: 1.5em;
@@ -138,7 +160,6 @@ nav {
   cursor: pointer;
   transition: 0.3s;
   font-weight: 700;
-  margin-top: 30px;
 }
 
 .cta-button:hover {
@@ -146,37 +167,28 @@ nav {
   box-shadow: 0 0 30px rgba(0, 243, 255, 0.5);
 }
 
-.hero-stats {
-  display: flex;
-  gap: 50px;
-  margin-top: 50px;
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
 }
 
-.stat {
-  text-align: center;
+.about-card {
+  background: rgba(0, 243, 255, 0.1);
+  padding: 30px;
+  border-radius: 10px;
+  border: 2px solid var(--neon-blue);
+  transition: 0.3s;
 }
 
-.stat .number {
-  font-size: 3em;
-  color: var(--neon-blue);
-  display: block;
-}
-
-.stat .label {
-  font-size: 1.2em;
-  color: white;
-}
-
-.tournament-section, .prizes-section {
-  padding: 100px 50px;
-  text-align: center;
+.about-card:hover {
+  transform: translateY(-10px);
 }
 
 .stages-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
-  margin-top: 50px;
 }
 
 .stage {
@@ -189,20 +201,12 @@ nav {
 
 .stage:hover {
   transform: translateY(-10px);
-  box-shadow: 0 10px 30px rgba(0, 243, 255, 0.2);
-}
-
-.stage-number {
-  font-size: 2.5em;
-  color: var(--neon-pink);
-  margin-bottom: 20px;
 }
 
 .prizes-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 30px;
-  margin-top: 50px;
 }
 
 .prize {
@@ -210,24 +214,59 @@ nav {
   border-radius: 10px;
   background: rgba(255, 0, 153, 0.1);
   border: 2px solid var(--neon-pink);
+  transition: 0.3s;
 }
 
-.prize .position {
-  font-size: 2em;
-  color: var(--cyber-yellow);
-  display: block;
-  margin-bottom: 10px;
+.prize:hover {
+  transform: scale(1.05);
 }
 
-.prize .amount {
-  font-size: 1.5em;
-  color: white;
+.rules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.rule {
+  background: rgba(255, 215, 0, 0.1);
+  padding: 30px;
+  border-radius: 10px;
+  border: 2px solid var(--cyber-yellow);
+}
+
+.rule ul {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.rule li {
+  margin: 10px 0;
+}
+
+.leaderboard-table {
+  background: rgba(0, 243, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.leaderboard-row {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  padding: 20px;
+  border-bottom: 1px solid var(--neon-blue);
+}
+
+.leaderboard-row.header {
+  background: var(--neon-blue);
+  color: var(--dark-bg);
+  font-weight: 700;
 }
 
 h2 {
   font-size: 3em;
   color: var(--neon-blue);
-  margin-bottom: 30px;
+  margin-bottom: 50px;
+  text-align: center;
   text-shadow: 0 0 15px var(--neon-blue);
 }
 
@@ -241,13 +280,26 @@ footer {
 @media (max-width: 768px) {
   nav {
     padding: 20px;
-    flex-direction: column;
-    gap: 20px;
   }
 
-  .nav-menu a {
-    margin: 0 15px;
-    font-size: 0.9em;
+  .nav-menu {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.95);
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
   }
 
   .hero-content h1 {
@@ -262,11 +314,11 @@ footer {
     font-size: 3em;
   }
 
-  .hero-stats {
-    gap: 20px;
+  h2 {
+    font-size: 2em;
   }
 
-  .stat .number {
-    font-size: 2em;
+  section {
+    padding: 80px 20px;
   }
 }
